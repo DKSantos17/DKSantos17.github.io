@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>NFL Stat Finder</title>
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <h1>NFL Stat Finder</h1>
+        
+        <form id="most-recent" hidden>
+            <h2>Most Recent</h2>
+            <p>Who was the most recent 
+                <select id="most-recent-player-team">
+                    <option value="player">player</option>
+                    <option value="team">team</option>
+                </select>
+                 to have at least 
+                 <input type="number" id="most-recent-number"> 
+                 <input type="text" id="most-recent-stat">
+                  in a single 
+                <select id="most-recent-game-season">
+                    <option value="game">game</option>
+                    <option value="season">season</option>
+                </select>
+                ?</p>
+            <input type="submit" value="Find" id="most-recent-submit">
+        </form>
+        <form id="superlative">
+            <h2>Superlative</h2>
+            <p>What 
+                <select id="superlative-position">
+                    <option hidden disabled selected value>position</option>
+                    <option value="QB">Quarterback</option>
+                    <option value="RB">Running Back</option>
+                    <option value="WR">Wide Receiver</option>
+                    <option value="TE">Tight End</option>
+                    <!--<option value="K">Kicker</option>
+                    <option value="DEF">Defense</option>
+                    <option value="DL">Defensive Lineman</option>
+                    <option value="LB">Linebacker</option>
+                    <option value="DB">Defensive Back</option>-->
+                </select>
+                 had the most 
+                 <select id="superlative-stat">
+                     <option hidden disabled selected value>statistic</option>
+                     <option value="2">Passing Attempts</option>
+                     <option value="3">Passing Completions</option>
+                     <option value="4">Incomplete Passes</option>
+                     <option value="5">Passing Yards</option>
+                     <option value="6">Passing Touchdowns</option>
+                     <option value="7">Interceptions Thrown</option>
+                     <option value="8">Sacks against</option>
+                     <option value="13">Rushing Attempts</option>
+                     <option value="14">Rushing Yards</option>
+                     <option value="15">Rushing Touchdowns</option>
+                     <option value="20">Receptions</option>
+                     <option value="21">Receiving Yards</option>
+                     <option value="22">Receiving Touchdowns</option>
+                     <option value="31">Fumbles</option>
+                     <option value="30">Fumbles Lost</option>
+                     <option value="32">2-Point Conversions</option>
+                 </select>
+                 <select id="superlative-range-type">
+                     <option hidden disabled selected value>select range</option>
+                     <option value="one-game">in a single game</option>
+                     <option value="one-season">in a single season</option>
+                     <option value="multiple-games">over a range of weeks</option>
+                     <option value="multiple-seasons">over a range of seasons</option>
+                 </select>
+                ?
+            <section id="superlative-range"></section>
+            </p>
+            <input type="submit" value="Find" id="most-recent-submit">
+        </form>
+        <h2>Results</h2>
+        <section id="results">
+            
+        </section>
+        <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
