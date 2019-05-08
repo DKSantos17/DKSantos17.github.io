@@ -7,62 +7,26 @@
         <link rel="stylesheet" href="main.css" type="text/css">
     </head>
     <body>
-        <h1>NFL Stat Finder</h1>
-        
-        <form id="most-recent" hidden>
-            <h2>Most Recent</h2>
-            <p>Who was the most recent 
-                <select id="most-recent-player-team">
-                    <option value="player">player</option>
-                    <option value="team">team</option>
-                </select>
-                 to have at least 
-                 <input type="number" id="most-recent-number"> 
-                 <input type="text" id="most-recent-stat">
-                  in a single 
-                <select id="most-recent-game-season">
-                    <option value="game">game</option>
-                    <option value="season">season</option>
-                </select>
-                ?</p>
-            <input type="submit" value="Find" id="most-recent-submit">
-        </form>
-        <form id="superlative">
-            <h2>Superlative</h2>
+        <h1>NFL Superlative Stat Finder</h1>
+        <form>
             <p>What 
-                <select id="superlative-position">
+                <select id="position" required>
                     <option hidden disabled selected value>position</option>
                     <option value="QB">Quarterback</option>
                     <option value="RB">Running Back</option>
                     <option value="WR">Wide Receiver</option>
                     <option value="TE">Tight End</option>
-                    <!--<option value="K">Kicker</option>
+                    <option value="K">Kicker</option>
                     <option value="DEF">Defense</option>
                     <option value="DL">Defensive Lineman</option>
                     <option value="LB">Linebacker</option>
-                    <option value="DB">Defensive Back</option>-->
+                    <option value="DB">Defensive Back</option>
                 </select>
                  had the most 
-                 <select id="superlative-stat">
-                     <option hidden disabled selected value>statistic</option>
-                     <option value="2">Passing Attempts</option>
-                     <option value="3">Passing Completions</option>
-                     <option value="4">Incomplete Passes</option>
-                     <option value="5">Passing Yards</option>
-                     <option value="6">Passing Touchdowns</option>
-                     <option value="7">Interceptions Thrown</option>
-                     <option value="8">Sacks against</option>
-                     <option value="13">Rushing Attempts</option>
-                     <option value="14">Rushing Yards</option>
-                     <option value="15">Rushing Touchdowns</option>
-                     <option value="20">Receptions</option>
-                     <option value="21">Receiving Yards</option>
-                     <option value="22">Receiving Touchdowns</option>
-                     <option value="31">Fumbles</option>
-                     <option value="30">Fumbles Lost</option>
-                     <option value="32">2-Point Conversions</option>
+                 <select id="stat" required>
+                     <option hidden disabled selected value>Choose a position</option>
                  </select>
-                 <select id="superlative-range-type">
+                 <select id="range-type" required>
                      <option hidden disabled selected value>select range</option>
                      <option value="one-game">in a single game</option>
                      <option value="one-season">in a single season</option>
@@ -70,9 +34,9 @@
                      <option value="multiple-seasons">over a range of seasons</option>
                  </select>
                 ?
-            <section id="superlative-range"></section>
+            <section id="range"></section>
             </p>
-            <input type="submit" value="Find" id="most-recent-submit">
+            <input type="submit" value="Find" id="submit">
         </form>
         <h2>Results</h2>
         <section id="results">
