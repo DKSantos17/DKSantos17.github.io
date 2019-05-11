@@ -5,9 +5,11 @@
         <meta name="viewport" content="width=device-width">
         <title>NFL Stat Finder</title>
         <link rel="stylesheet" href="main.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     </head>
     <body>
         <h1>NFL Superlative Stat Finder</h1>
+        <div class="style">
         <form>
             <p>What 
                 <select id="position" required>
@@ -28,20 +30,20 @@
                  </select>
                  <select id="range-type" required>
                      <option hidden disabled selected value>select range</option>
-                     <option value="one-game">in a single game</option>
+                     <option value="one-game">in a single week</option>
                      <option value="one-season">in a single season</option>
-                     <option value="multiple-games">over a range of weeks</option>
-                     <option value="multiple-seasons">over a range of seasons</option>
+                     <option value="multiple-games">in one game over a range</option>
+                     <option value="multiple-seasons">in one season over a range</option>
                  </select>
                 ?
             <section id="range"></section>
             </p>
             <input type="submit" value="Find" id="submit">
         </form>
-        <h2>Results</h2>
         <section id="results">
             
         </section>
+    </div>
         <script src="//code.jquery.com/jquery.min.js"></script>
         <script src="index.js"></script>
     </body>

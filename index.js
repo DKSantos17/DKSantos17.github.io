@@ -10,10 +10,10 @@ fetch(url)
 function displayResult(arr, stat) {
   $('#results').empty()
   if (arr.length===1) {
-    $('#results').append(arr[0].name + ': ' + arr[0].stats[stat] + ' ' + statsKey[stat])
+    $('#results').append('<h2>Results</h2>' + arr[0].name + ': ' + arr[0].stats[stat] + ' ' + statsKey[stat])
   }
   else {
-    $('#results').append(arr[0].stats[stat] + ' ' + statsKey[stat] + ':')
+    $('#results').append('<h2>Results</h2>' + arr[0].stats[stat] + ' ' + statsKey[stat] + ':')
     for (i = 0; i < arr.length; i++) {
       $('#results').append('<br>' + arr[i].name)
   }
@@ -25,7 +25,7 @@ function findMost(arr, stat) {
     return obj.stats[stat]
   })
   if (nonZero.length===0) {
-    alert('No players were found who match your search criteria.')
+    $('#results').html('<h2>Results</h2>No players were found who match your search criteria.')
   }
   else {
   let sorted = nonZero.sort(function sortBy(a, b) {
@@ -45,37 +45,6 @@ function rangeOnce(url, stat){
 Promise.all(empty) .then(data => { let arr = [] 
   data = data.forEach(player => { arr.push(...player.players) }) 
   findMost(arr, stat) })
-  /*let empty = url.map(async url => {
-    let data = await fetch(url)
-    let jsonData = await data.json()
-    return jsonData
-  })
-  Promise.all(empty)
-  .then(data =>{
-    let arr = []
-    data.forEach(player => {
-      arr.push(...player.players)
-    })
-    console.log(arr)
-  )
-
-  let empty = []
-  for (i=0; i<url.length; i++) {
-    fetch(url[i])
-    .then(response => response.json())
-    .then(json => {
-      let nonZero = json.players.filter (obj => {
-        return obj.stats[stat]
-      })
-      let sorted = nonZero.sort(function sortBy(a, b) {
-        console.log('sorting')
-        return b.stats[stat] - a.stats[stat]
-      })
-      let most = sorted[0].stats[stat]
-      let result = sorted.filter(player => player.stats[stat] === most)
-      console.log(result)
-    })
-  }*/
 }
 
 function watchForm() {
@@ -141,7 +110,6 @@ function watchForm() {
 function watchPositionSelect() {
   $('#position').change(function posName() {
     pos = $('#position').val()
-    console.log(pos)
     if (pos === 'QB' || pos === 'RB' || pos === 'WR' || pos === 'TE') {
       $('#stat').html('<option hidden disabled selected value>statistic</option><option value="2">Passing Attempts</option><option value="3">Passing Completions</option><option value="4">Incomplete Passes</option><option value="5">Passing Yards</option><option value="6">Passing Touchdowns</option><option value="7">Interceptions Thrown</option><option value="8">Sacks against</option><option value="13">Rushing Attempts</option><option value="14">Rushing Yards</option><option value="15">Rushing Touchdowns</option><option value="20">Receptions</option><option value="21">Receiving Yards</option><option value="22">Receiving Touchdowns</option><option value="31">Fumbles</option><option value="30">Fumbles Lost</option><option value="29">Fumbles Recovered for an Offensive Touchdown</option><option value="32">2-Point Conversions</option><option value="27">Return Yards</option><option value="28">Return Touchdowns</option><option value="9">Games of 300-399 Passing Yards</option><option value="10">Games of 400+ Passing Yards</option><option value="18">Games of 100-199 Rushing Yards</option><option value="19">Games of 200+ Rushing Yards</option><option value="25">Games of 100-199 Receiving Yards</option><option value="26">Games of 200+ Receiving Yards</option><option value="11">Passing TDs of 40-49 Yards</option><option value="12">Passing TDs of 50+ Yards</option><option value="16">Rushing TDs of 40-49 Yards</option><option value="17">Rushing TDs of 50+ Yards</option><option value="23">Receiving TDs of 40-49 Yards</option><option value="24 Receiving TDs of 50+ Yards"></option>')
     }
@@ -154,7 +122,7 @@ function watchPositionSelect() {
       console.log('team defense')
     }
     else if (pos === 'DL' || pos === 'LB' || pos === 'DB') {
-      $('#stat').html('<option hidden disabled selected value>statistic</option><option value="70">Tackles</option><option value="71">Assisted Tackles</option><option value="72">Sacks</option><option value="73">Interceptions</option><option value="74">Forced Fumbles</option><option value="75">Fumble Recoveries</option><option value="76">Interception Return Touchdowns</option><option value="77">Fumble Return Touchdowns</option><option value="78">Blocked Kick Return Touchdowns</option><option value="79">Blocked Kicks</option><option value="80">Safeties</option><option value="81">Passes Defensed</option><option value="82">Interception Return Yards</option><option value="83">Fumble Return Yards</option><option value="84">Tackles for a Loss</option><option value="85">QB Hits</option><option value="86">Sack Yards</option><option value="87">Games of 10+ Tackles</option><option value="88">Games of 2+ Sacks</option><option value="89">Games of 3+ Passes Defensed</option><option value="90">Interception Return Touchdonws of 50+ Yards</option><option value="91">Fumble Return Touchdowns of 50+ Yards</option>')
+      $('#stat').html('<option hidden disabled selected value>statistic</option><option value="70">Solo Tackles</option><option value="71">Assisted Tackles</option><option value="72">Sacks</option><option value="73">Interceptions</option><option value="74">Forced Fumbles</option><option value="75">Fumble Recoveries</option><option value="76">Interception Return Touchdowns</option><option value="77">Fumble Return Touchdowns</option><option value="78">Blocked Kick Return Touchdowns</option><option value="79">Blocked Kicks</option><option value="80">Safeties</option><option value="81">Passes Defensed</option><option value="82">Interception Return Yards</option><option value="83">Fumble Return Yards</option><option value="84">Tackles for a Loss</option><option value="85">QB Hits</option><option value="86">Sack Yards</option><option value="87">Games of 10+ Tackles</option><option value="88">Games of 2+ Sacks</option><option value="89">Games of 3+ Passes Defensed</option><option value="90">Interception Return Touchdonws of 50+ Yards</option><option value="91">Fumble Return Touchdowns of 50+ Yards</option>')
       console.log('defensive player')
     }
   })
@@ -256,7 +224,7 @@ let statsKey = {
     67: 'Games of 400-449 Yards Allowed',
     68: 'Games of 450-499 Yards Allowed',
     69: 'Games of 500+ Yards Allowed',
-    70: 'Tackles',
+    70: 'Solo Tackles',
     71: 'Assisted Tackles',
     72: 'Sacks',
     73: 'Interceptions',

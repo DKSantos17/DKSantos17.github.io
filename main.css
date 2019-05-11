@@ -1,0 +1,54 @@
+* {
+    font-family: Ubuntu, sans-serif;
+}
+
+html {
+    background-color: lightgray;
+}
+
+body {
+    width: 100%;
+    margin: 0px;
+}
+
+.style {
+    margin: 0 auto;
+    width: 80%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+h1 {
+    text-align: center;
+    display: block;
+    color: white;
+    background-color: navy;
+    padding: 10px;
+    margin-top: 0px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.4em;
+}
+
+select, input {
+    font-size: 16px;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+input[type=number] {
+    width: 60px;
+}
+
+input[type=submit] {
+    padding: 2px 7px;
+    font-size: 20px;
+}
+
+h2 {
+    text-align: center;
+}
